@@ -4,6 +4,7 @@ import { BingoCard } from './components/BingoCard'
 import { NumberDrawer } from './components/NumberDrawer'
 import { DrawnNumbers } from './components/DrawnNumbers'
 import { GameControls } from './components/GameControls'
+import { ThemeToggle } from './components/ThemeToggle'
 
 export interface BingoNumber {
   number: number
@@ -176,11 +177,21 @@ function App() {
   }, [hasBingo])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
-      <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">🎯 Jogo de Bingo</h1>
-          <p className="text-gray-600">Marque os números da sua cartela conforme são sorteados!</p>
+    <div className="min-h-screen bg-theme-gradient transition-colors duration-300">      
+      <div className="relative max-w-7xl mx-auto p-4">
+        {/* Header */}
+        <header className="text-center mb-8 relative">
+          <div className="absolute top-0 right-0">
+            <ThemeToggle />
+          </div>
+          <div className="inline-block p-6 bg-card backdrop-blur-sm rounded-2xl shadow-lg border border-border">
+            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
+              🎯 Jogo de Bingo
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              Marque os números da sua cartela conforme são sorteados!
+            </p>
+          </div>
         </header>
 
         <div className="grid lg:grid-cols-3 gap-8">
@@ -221,12 +232,17 @@ function App() {
         </div>
 
         {hasBingo && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white p-8 rounded-lg text-center">
-              <h2 className="text-4xl font-bold text-green-600 mb-4">🎉 BINGO! 🎉</h2>
-              <p className="text-xl mb-6">Parabéns! Você completou sua cartela!</p>
-              <Button onClick={startNewGame} size="lg">
-                Novo Jogo
+          <div className="fixed inset-0 bg-background/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+            <div className="bg-card p-8 rounded-3xl text-center shadow-2xl border border-border max-w-md w-full transform animate-pulse">
+              <div className="text-6xl mb-4">🎉</div>
+              <h2 className="text-4xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent mb-4">
+                BINGO!
+              </h2>
+              <p className="text-xl mb-6 text-muted-foreground">
+                Parabéns! Você completou sua cartela!
+              </p>
+              <Button onClick={startNewGame} size="lg" className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-xl shadow-lg transform transition-all duration-200 hover:scale-105">
+                🎯 Novo Jogo
               </Button>
             </div>
           </div>
