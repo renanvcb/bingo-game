@@ -14,8 +14,8 @@ export function DrawnNumbers({ drawnNumbers, allNumbers }: DrawnNumbersProps) {
 
   return (
     <div className="bg-card backdrop-blur-sm rounded-2xl shadow-xl border border-border p-6">
-      <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        📊 Números Sorteados ({drawnNumbers.length}/75)
+      <h2 className="text-2xl font-semibold mb-6">
+        📊 <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>Números Sorteados ({drawnNumbers.length}/75)</span>
       </h2>
       
       <div className="space-y-6">

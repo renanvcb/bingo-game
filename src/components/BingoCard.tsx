@@ -12,8 +12,8 @@ export function BingoCard({ card, markedNumbers, onMarkNumber, hasBingo }: Bingo
 
   return (
     <div className={`bg-card backdrop-blur-sm rounded-2xl shadow-xl border border-border p-6 transition-all duration-300 ${hasBingo ? 'ring-4 ring-green-500 ring-opacity-60 shadow-green-500/20 shadow-2xl' : ''}`}>
-      <h2 className="text-2xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        🎲 Sua Cartela
+      <h2 className="text-2xl font-bold text-center mb-6">
+        🎲 <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>Sua Cartela</span>
       </h2>
       
       <div className="grid grid-cols-5 gap-2 p-4 bg-muted rounded-xl">

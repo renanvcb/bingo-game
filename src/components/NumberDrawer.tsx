@@ -8,8 +8,8 @@ interface NumberDrawerProps {
 export function NumberDrawer({ currentNumber, isGameActive }: NumberDrawerProps) {
   return (
     <div className="bg-card backdrop-blur-sm rounded-2xl shadow-xl border border-border p-8 text-center">
-      <h2 className="text-2xl font-semibold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-        🎲 Número Sorteado
+      <h2 className="text-2xl font-semibold mb-8">
+        🎲 <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>Número Sorteado</span>
       </h2>
       
       <div className="relative">

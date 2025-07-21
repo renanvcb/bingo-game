@@ -185,8 +185,8 @@ function App() {
             <ThemeToggle />
           </div>
           <div className="inline-block p-6 bg-card backdrop-blur-sm rounded-2xl shadow-lg border border-border">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
-              🎯 Jogo de Bingo
+            <h1 className="text-5xl font-bold mb-2">
+              🎯 <span className='bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent'>Jogo de Bingo</span>
             </h1>
             <p className="text-muted-foreground text-lg">
               Marque os números da sua cartela conforme são sorteados!
