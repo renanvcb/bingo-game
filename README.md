@@ -181,7 +181,7 @@ npm run lint       # Verificação de código
 
 ## 🚀 Próximas Funcionalidades
 
-- [ ] 🌙 **Modo escuro** alternável
+- [x] 🌙 **Modo escuro** alternável
 - [ ] 🔊 **Efeitos sonoros** para sorteios e vitória
 - [ ] 👥 **Modo multiplayer** local
 - [ ] 💾 **Salvamento** de estatísticas
