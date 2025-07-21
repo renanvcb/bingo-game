@@ -113,12 +113,16 @@ function App() {
   }, [])
 
   const checkBingo = useCallback(() => {
+    // Create a set of drawn numbers for fast lookup
+    const drawnNumbersSet = new Set(drawnNumbers.map(num => num.number))
+    
     // Check rows
     for (let row = 0; row < 5; row++) {
       let rowComplete = true
       for (let col = 0; col < 5; col++) {
         if (row === 2 && col === 2) continue // Free space
-        if (!markedNumbers.has(playerCard[col][row])) {
+        const number = playerCard[col][row]
+        if (!markedNumbers.has(number) || !drawnNumbersSet.has(number)) {
           rowComplete = false
           break
         }
@@ -131,7 +135,8 @@ function App() {
       let colComplete = true
       for (let row = 0; row < 5; row++) {
         if (row === 2 && col === 2) continue // Free space
-        if (!markedNumbers.has(playerCard[col][row])) {
+        const number = playerCard[col][row]
+        if (!markedNumbers.has(number) || !drawnNumbersSet.has(number)) {
           colComplete = false
           break
         }
@@ -145,16 +150,22 @@ function App() {
     
     for (let i = 0; i < 5; i++) {
       if (i === 2) continue // Free space
-      if (!markedNumbers.has(playerCard[i][i])) {
+      
+      // Main diagonal (top-left to bottom-right)
+      const number1 = playerCard[i][i]
+      if (!markedNumbers.has(number1) || !drawnNumbersSet.has(number1)) {
         diagonal1 = false
       }
-      if (!markedNumbers.has(playerCard[i][4 - i])) {
+      
+      // Anti-diagonal (top-right to bottom-left)
+      const number2 = playerCard[i][4 - i]
+      if (!markedNumbers.has(number2) || !drawnNumbersSet.has(number2)) {
         diagonal2 = false
       }
     }
 
     return diagonal1 || diagonal2
-  }, [markedNumbers, playerCard])
+  }, [markedNumbers, playerCard, drawnNumbers])
 
   const hasBingo = checkBingo()
 
